@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+ }
+ #main {
+    height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background-color: rgba(0, 255, 255, 0.067);
+ }
+ #s1{
+    width: auto;
+    padding: 15px;
+    background-color:#ecf0f3;
+    border-radius: 30px;
+    box-shadow: inset -5px -5px 12px #fff,
+               inset 5px 5px 12px rgba(0, 0, 0, 0.16);;
+ }
+ input {
+    margin: 10px;
+    padding: 13px 40px;
+    background-color: #ecf0f3;
+    border-radius: 30px;
+    font-size: 18px;
+    text-align: end;
+    border: none;
+    box-shadow: inset -5px -5px 12px #fff,
+                inset 5px 5px 12px rgba(0, 0, 0, 0.16  );
+ }
+ table{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            
+        }
+        button{
+            margin: 8px;
+            padding: 17px;
+            border-radius: 30%;
+            border: none;
+            background-color: #ecf0f3;
+            box-shadow: -5px -5px 12px #fff,5px 5px 12px rgba(0, 0, 0, 0.16);
+        }
+        #eq {
+          padding:75px 15px ;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="s1">
+            <div id="diplay">
+                <input type="text" placeholder="calculator" id="ip">
+            </div>
+            <div id="buttons">
+                <table>
+                    <tr>
+                       <td><button onclick="cl()">C</button></td>
+                        <td><button onclick="display('/')">/</button></td>
+                        <td><button onclick="display('*')">*</button></td>
+                        <td><button onclick="display('-')">-</button></td>
+                    </tr>
+                    <tr>
+                        <td><BUtton onclick="display('7')">7</BUtton></td>
+                        <td><button onclick="display('8')">8</button></td>
+                        <td><button onclick="display('9')">9</button></td>
+                        <td><button onclick="display('+')">+</button></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="display('4')">4</button></td>
+                        <td><button onclick="display('5')">5</button></td>
+                        <td><button onclick="display('6')"> 6</button></td>
+                        <td rowspan="3" ><button id="eq" onclick="calc()">=</button></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="display('1')">1</button></td>
+                        <td><button onclick="display('2')">2</button></td>
+                        <td><button onclick="display('3')">3</button></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="display('0')">0</button></td>
+                        <td><button onclick="display('.')">.</button></td>
+                        <td><button onclick="del()">Del</button></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+let out=document.getElementById("ip");
+function display(num){
+    out.value += num;
+
+}
+function calc(){
+    try{
+        out.value=eval(out.value);
+
+    }
+    catch(err){
+        alert("invalid")
+    }
+}
+function cl(){
+    out.value = "";
+    
+}
+function del(){
+    out.value = out.value.slice(0,-1);
+}
+
+
+
+</script>
+</body>
+</html>
